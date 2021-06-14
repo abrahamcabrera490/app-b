@@ -33,25 +33,19 @@
 
     <div class="col-md-12 center-block">
 
-        <p class="text-center">Numero de Orden: <br>   <br> <strong>{{$item->id}}</strong>  </p>
-        <p class="text-center">Departamento: <br>   <br> <strong>{{$item->dpto}}</strong>  </p>
-        <br>
-        <p class="text-center">Usuarios que lo solicito: <br>   <br> <strong>{{$item->user_name}}</strong>  </p>
-        <br>
-        <br>
+        <h2 class="text-center">Numero de Orden:  <strong>{{$item->id}}</strong>  </h2>
+        <h2 class="text-center">Departamento: <strong>{{$item->dpto}}</strong>  </h2>
+        <h2 class="text-center">Usuarios que lo solicito:  <br> <strong>{{$item->user_name}}</strong>  </h2>
         <br>
         <p class="text-center">Tarea a realizar</p>
-
-        <br>
-        <br>
         <br>
         <h4  class="text-center">{{$item->task}}</h4>
 
         <br><br>
-        <p class="text-center">Imagen antes de realizar el trabajo</p>
+        <h2 class="text-center">Imagen antes de realizar el trabajo</h2>
       
       <div class="row col-md-8 center-block">
-        <img class="center-block float-center col-md-8"  src="{{ route('watch_image', ['filename'=> $item->image_work_before]) }}" alt="Imagen del pendiente" />
+        <img class="center-block float-center  text-center col-md-auto col-md-8"  src="{{ route('watch_image', ['filename'=> $item->image_work_before]) }}" alt="Imagen del pendiente" />
     </div>
 
 
