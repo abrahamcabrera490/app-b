@@ -37,15 +37,15 @@
         <h2 class="text-center">Departamento: <strong>{{$item->dpto}}</strong>  </h2>
         <h2 class="text-center">Usuarios que lo solicito:  <br> <strong>{{$item->user_name}}</strong>  </h2>
         <br>
-        <p class="text-center">Tarea a realizar</p>
+        <h2 class="text-center">Tarea a realizar</h2>
         <br>
         <h4  class="text-center">{{$item->task}}</h4>
 
         <br><br>
         <h2 class="text-center">Imagen antes de realizar el trabajo</h2>
       
-      <div class="row col-md-8 center-block">
-        <img class="center-block float-center  text-center col-md-auto col-md-8"  src="{{ route('watch_image', ['filename'=> $item->image_work_before]) }}" alt="Imagen del pendiente" />
+      <div class="row col-md-12 center-block">
+        <img style="margin: 0px auto;" class="center-block float-center  text-center col-md-auto col-md-8"  src="{{ route('watch_image', ['filename'=> $item->image_work_before]) }}" alt="Imagen del pendiente" />
     </div>
 
 
