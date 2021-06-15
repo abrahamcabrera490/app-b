@@ -40,6 +40,7 @@
                                 <!--/* route('usredit',$user->id)*/ -->
                                 <a href="{{  route('run_ticket', $item->id) }}" type="button" class="btn btn-primary">Ejecutar</a>   
                                 <button type="button" class="btn btn-success">imprimir</button>
+                                <button type="button" class="btn btn-warning">Cancelar</button>
                             </td>
                         </tr>
                         
