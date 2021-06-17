@@ -240,11 +240,11 @@ input[type=range]:focus::-ms-fill-upper {
 
 <div style="margin: 0px auto;" class="row col-md-12  center-block ">
 
-<form   class="col-md-12   centerblock"  action="#" method="POST">
-
+<form   class="col-md-12   centerblock"  action="{{route('close_ticket.update', $item->id)}}" enctype="multipart/form-data" method="POST">
+  @method('PATCH')
 
 @csrf
-@method('POST')
+
 
 <label for="fecha_real">Fecha en la cual se concluyo el trabajo</label>
 
@@ -259,7 +259,7 @@ input[type=range]:focus::-ms-fill-upper {
 
 <label for="decription">Material Utilizado</label>
 <br>
-<textarea class="col-md-12 center-block" name="description" id="" cols="35" rows="10"></textarea>
+<textarea class="col-md-12 center-block" name="tools" id="" cols="35" rows="10"></textarea>
 <br>
 <label for="dpto">Imagen del trabajo finalizado</label>
 <br>
@@ -296,13 +296,15 @@ input[type=range]:focus::-ms-fill-upper {
     <br/>
     <div class="row">
         <div class="col-md-12">
-            <textarea hidden id="draw-dataUrl" class="form-control" rows="5">Para los que saben que es esto:</textarea>
+            <textarea hidden id="draw-dataUrl" name="firm" class="form-control" rows="5">Para los que saben que es esto:</textarea>
         </div>
     </div>
     <br/>
 
 <!--Fin canvas draw-->
 <button class="bg-success col-md-12 center-block">Finalizar tarea</button>
+
+<button onclick="window.print()">imprimir</button>
 </form>
 
 </div>

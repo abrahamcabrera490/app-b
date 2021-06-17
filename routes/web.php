@@ -32,7 +32,9 @@ Route::GET('/orders_show', [App\Http\Controllers\UsersTicket::class, 'orders_sho
 Route::GET('/run_ticket/{id}', [App\Http\Controllers\UsersTicket::class, 'run_ticket'])->name('run_ticket');
 Route::post('/newticket', [App\Http\Controllers\UsersTicket::class, 'newticket'])->name('newticket');
 Route::GET('/run_ticket/{id}', [App\Http\Controllers\UsersTicket::class, 'run_ticket'])->name('run_ticket');
+Route::GET('/print/{id}', [App\Http\Controllers\UsersTicket::class, 'print'])->name('print');
 Route::GET('/watch_image/{filename}', [App\Http\Controllers\UsersTicket::class, 'watch_image'])->name('watch_image');
+Route::patch('/close_ticket/{id}', [App\Http\Controllers\UsersTicket::class, 'close_ticket'])->name('close_ticket.update');
 
 
 });

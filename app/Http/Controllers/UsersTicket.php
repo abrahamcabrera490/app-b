@@ -83,4 +83,59 @@ return new Response($file, 200);
 
 
 
+
+
+
+public function close_ticket(Request $request, $id)
+{
+
+ 
+$realtime = $request->input('date');
+$decription = $request->input('description');
+$tools = $request->input('tools');
+$file = $request->file('upload_file');
+$firm = $request->input('firm');
+$file_name  = time().$file->getClientOriginalName();
+Storage::disk('images')->put($file_name, File::get($file));
+
+
+
+
+$update =DB::table('ticket')->where('id',$id)->update(array(
+
+
+"real_delivery_time"  => $realtime,
+"firm_path"  => $firm,
+"description_work"=> $decription,
+"image_work_after" => $file_name,
+"used_material" => $tools,
+"status" => 'realizado',
+
+
+/*
+"real_delivery_time"  => null,
+"firm_path"  => null,
+"description_work"=> null,
+"image_work_after" => null,
+"used_material" => null,
+"status" => 'pendiente',
+*/
+
+));
+return redirect('/home');
+}
+
+
+
+public function print($id)
+{
+
+
+$data = DB::table('ticket')->get()->where('id', $id);
+
+return view('tickets.order',compact('data'));
+}
+
+
+
 }

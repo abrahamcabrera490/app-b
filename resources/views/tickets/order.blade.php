@@ -10,7 +10,7 @@
 <style>
 .conte1
 {
-    width: 1110px;
+    width: 1000px;
     height: 300px;
     margin: 0px auto;
     text-align: center;
@@ -19,7 +19,7 @@
 }
 .conte2
 {
-    width: 1110px;
+    width: 1000px;
     height: 700px;
     margin: 0px auto;
     text-align: center;
@@ -28,7 +28,7 @@
 }
 .fecha1
 {
-    margin-left: -50rem !important;
+    margin-left: -40rem !important;
 }
 .fecha2
 {
@@ -41,29 +41,47 @@
 
 </head>
 <body>
+    <input type="button" onclick="printDiv('areaImprimir')" value="imprimir div" />
+    <div id="areaImprimir">
+        @foreach ( $data as $item )
     
 <header class="conte1">
-<h1>Orden de servicio Sistemas</h1>
 
-<p class="fecha1"> <strong>fecha solicitada por el usuario:</strong>  <br> 12/02/2021</p>
-<p class="fecha2">  <strong>fecha de ejecucion:</strong>  <br> 12/02/2021</p>
+<h1>Orden de servicio Sistemas <br> Orden No {{$item->id}}</h1>
+
+<p class="fecha1"> <strong>fecha solicitada por el usuario:</strong>  <br>{{$item->updated_at}}</p>
+<p class="fecha2">  <strong>fecha de ejecucion:</strong>  <br> {{$item->real_delivery_time}}</p>
 <h2> <strong> Descripcion de la tarea </strong> <br></h2>
-<p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Delectus quidem, maxime rerum molestiae explicabo tenetur saepe eos eveniet quaerat voluptatem culpa iure eligendi. Reiciendis tenetur nulla sint exercitationem. Error, aperiam!</p>
+<p>{{$item->task}}</p>
 </header>
 
 <div class="conte2">
 <h2>Material utilizado</h2>
-<p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Necessitatibus ab ratione fugiat deserunt temporibus esse omnis commodi eligendi sapiente cum ullam quo ex possimus totam, eius reprehenderit mollitia ea quod.</p>
+<p>{{$item->used_material}}</p>
 <h2>Observaciones</h2>
-<p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Veritatis unde deserunt optio natus alias nisi sapiente soluta inventore, voluptatum tempore quidem velit laudantium qui reprehenderit. Earum ullam alias aspernatur iure.</p>
+<p>{{$item->description_work}}</p>
 <br><br>
 <br>
-<img src=""  width="250" height="250" alt="">
+<img src="{{$item->firm_path}}"  width="250" height="250" alt="">
 <hr width="250" >
-<p>Firma usuaruio conforme <br>Nombre del usuario</p>
+<p>{{$item->user_name}} <br>  <br>    Firma usuaruio conforme  </p>
 </div>
+@endforeach
+</div>
+<script>
+    function printDiv(nombreDiv) {
+     var contenido= document.getElementById(nombreDiv).innerHTML;
+     var contenidoOriginal= document.body.innerHTML;
 
+     document.body.innerHTML = contenido;
+
+     window.print();
+
+     document.body.innerHTML = contenidoOriginal;
+}
+</script>
 
 
 </body>
 </html>
+
