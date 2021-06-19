@@ -66,13 +66,17 @@
                 <input 
                 type="checkbox"
                  value="{{$id}}"
-                  {{$user->roles->pluck('id')->contains($id) ? 'true':'false'}}
-
+                @if ($user->roles->pluck('name')->contains($name)== true)
+                    checked
+                @endif
                   
-                  name="roles" id="">
+                  name="roles" id=""
+                  >  
         {{$name}}
-            </label>
+        
+            </label>  &nbsp; 
         @endforeach
+        
 </form>
     </div>
 </div>
