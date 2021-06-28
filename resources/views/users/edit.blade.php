@@ -50,7 +50,7 @@
             <div class="form-group">
                 <strong>Password:</strong>
                 <br>
-                <input type="password" class="col-md-12" name="password" value="{{ $user->password}}">
+                <input type="password" class="col-md-12" name="password" value="{{$user->password}}">
             </div>
         </div>
         <div class="col-xs-12 col-sm-12 col-md-12">

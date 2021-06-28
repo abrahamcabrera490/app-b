@@ -64,7 +64,7 @@
 <br>
 <img src="{{$item->firm_path}}"  width="250" height="250" alt="">
 <hr width="250" >
-<p>{{$item->user_name}} <br>  <br>    Firma usuaruio conforme  </p>
+<p>{{$item->user_name}} <br>  <br>    Firma usuario conforme  </p>
 </div>
 @endforeach
 </div>
