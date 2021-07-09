@@ -62,7 +62,7 @@
                             <form action="{{ route('cap') }}" method="POST">
                                 @csrf
                                 @method('POST')
-                                <table class="  col-md-12 col-xs table table-responsive table-striped">
+                                <table class=" col-xl-12 col-md-12 col-xs-6 table table-responsive table-striped">
                                     <thead>
                                         <tr>
                                             <th scope="col">ID</th>
