@@ -7,6 +7,9 @@
     <div class="card shadow mb-4">
         <div class="card-header py-3">
             <h6 class="m-0 font-weight-bold text-primary">Usuarios Registrados</h6>
+            <div class="pull-right">
+                <a class="btn btn-primary" href="{{route("newuser")}}"> Usuario Nuevo</a>
+            </div>
         </div>
         <div class="card-body">
             <div class="table-responsive">
@@ -33,7 +36,7 @@
                        </td>
                        <td>
                         <a href="{{ route('usredit',$user->id) }}" type="button" class="btn btn-warning">Editar</a>   
-                        <button type="button" class="btn btn-danger">Eliminar</button>
+                        <a href="{{ route('delete_usr', $user->id) }}" class="btn btn-danger">Eliminar</a>
                     </td>
                      </tr>
                     @endforeach

@@ -11,8 +11,10 @@
             <h2>Editar Usuario</h2>
         </div>
         <div class="pull-right">
-            <a class="btn btn-primary" href="{{route("Usr")}}"> Back</a>
+            <a class="btn btn-primary" href="{{route("Usr")}}"> Otros Usuarios</a>
         </div>
+        <br>
+        
     </div>
 </div>
 
@@ -30,7 +32,11 @@
 
 
 
-<form  class="col-xl-12" action="#">
+<form  class="col-xl-12" action="{{route("update_usr.update",$user->id)}}" method="POST">
+    @method('PUT')
+
+    @csrf
+    
     <div class="row">
         <div class="col-xs-12 col-sm-12 col-md-12">
             <div class="form-group">
@@ -53,13 +59,6 @@
                 <input type="password" class="col-md-12" name="password" value="{{$user->password}}">
             </div>
         </div>
-        <div class="col-xs-12 col-sm-12 col-md-12">
-            <div class="form-group">
-                <strong>Confirm Password:</strong>
-                <br>
-                <input type="password" class="col-md-12"  name="password" value="{{ $user->password}}">
-            </div>
-        </div>
         @foreach ( $roles as $id => $name )
             <label>
 
@@ -70,14 +69,16 @@
                     checked
                 @endif
                   
-                  name="roles" id=""
+                  name="roles[]" id=""
                   >  
         {{$name}}
         
             </label>  &nbsp; 
         @endforeach
-        
+        <button class="bg-success ">Actualzar</button>
 </form>
+
+
     </div>
 </div>
 @endsection

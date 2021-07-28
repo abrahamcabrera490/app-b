@@ -85,6 +85,10 @@ Route::GET('/rhprom', [App\Http\Controllers\RhController::class, 'prom'])->name(
 /**=================================| Rutas de Accion usuarios |=================================*/
 Route::GET('/usr', [App\Http\Controllers\UsersController::class, 'index'])->name('Usr');
 Route::GET('/usredit/{id}', [App\Http\Controllers\UsersController::class, 'usredit'])->name('usredit');
+Route::PUT('/update_usr/{id}', [App\Http\Controllers\UsersController::class, 'update_usr'])->name('update_usr.update');
+Route::GET('/newuser', [App\Http\Controllers\UsersController::class, 'newuser'])->name('newuser');
+Route::GET('/delete_usr/{id}', [App\Http\Controllers\UsersController::class, 'delete_usr'])->name('delete_usr');
+Route::POST('/regusr', [App\Http\Controllers\UsersController::class, 'regusr'])->name('regusr');
 
 
 /**=================================| Rutas de Accion usuarios |=================================*/
@@ -96,8 +100,10 @@ Route::GET('/run_ticket/{id}', [App\Http\Controllers\UsersTicket::class, 'run_ti
 Route::POST('/newticket', [App\Http\Controllers\UsersTicket::class, 'newticket'])->name('newticket');
 Route::GET('/run_ticket/{id}', [App\Http\Controllers\UsersTicket::class, 'run_ticket'])->name('run_ticket');
 Route::GET('/print/{id}', [App\Http\Controllers\UsersTicket::class, 'print'])->name('print');
+Route::GET('/priority/{id}', [App\Http\Controllers\UsersTicket::class, 'task_priority'])->name('priority');
 Route::GET('/watch_image/{filename}', [App\Http\Controllers\UsersTicket::class, 'watch_image'])->name('watch_image');
 Route::patch('/close_ticket/{id}', [App\Http\Controllers\UsersTicket::class, 'close_ticket'])->name('close_ticket.update');
+Route::patch('/assigned_prioriti/{id}', [App\Http\Controllers\UsersTicket::class, 'assigned_prioriti'])->name('assigned_prioriti.update');
 /**=================================| Rutas de Ticket Sistemas |=================================*/
 
 /**=================================| Rutas de la PWA |=================================*/

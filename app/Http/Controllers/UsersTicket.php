@@ -51,6 +51,8 @@ $inset = DB::table('ticket')->insert(array(
     'task'  => $task,
     'image_work_before' => $file_name,
     'status' => $status,
+    'priority' => 'P/A',
+    'date_time' => date("Y-m-d H:i:s"),
 ));
 
 return redirect('/home');
@@ -135,7 +137,29 @@ $data = DB::table('ticket')->get()->where('id', $id);
 
 return view('tickets.order',compact('data'));
 }
+public function task_priority($id)
+{
 
 
+$data = DB::table('ticket')->get()->where('id', $id);
+
+return view('tickets.prioridad',compact('data'));
+}
+
+public function  assigned_prioriti(Request $request, $id)
+{
+
+    $priority = $request->input('priority');
+
+    $data = DB::table('ticket')->get()->where('id', $id);
+
+    $update =DB::table('ticket')->where('id',$id)->update(array(
+
+        "priority"  => $priority,
+ 
+        ));
+
+    return redirect()->route('orders_show');
+}
 
 }

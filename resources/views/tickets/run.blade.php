@@ -17,10 +17,7 @@
 </div>
 <style>
 
-body {
-  padding-top: 20px;
-  padding-bottom: 20px;
-}
+
 
 #draw-canvas {
   border: 2px dotted #CCCCCC;
@@ -280,8 +277,8 @@ input[type=range]:focus::-ms-fill-upper {
     </div>
     <div class="row">
         <div class="col-md-12">
-            <input type="button" class="button" id="draw-submitBtn" value="Aceptar firma"></input>
-            <input type="button" class="button" id="draw-clearBtn" value="Borrar firma"></input>
+            <input type="button" class="button" id="draw-submitBtn" value="Aceptar firma">
+            <input type="button" class="button" id="draw-clearBtn" value="Borrar firma">
 
                     <label hidden>Color</label>
                     <input hidden type="color" id="color">
@@ -304,7 +301,7 @@ input[type=range]:focus::-ms-fill-upper {
 <!--Fin canvas draw-->
 <button class="bg-success col-md-12 center-block">Finalizar tarea</button>
 
-<button onclick="window.print()">imprimir</button>
+
 </form>
 
 </div>
