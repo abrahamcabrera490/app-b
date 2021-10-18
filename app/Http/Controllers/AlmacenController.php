@@ -9,7 +9,7 @@ class AlmacenController extends Controller
 
     function __construct()
     {
-        $this->middleware(['auth', 'roles:admin']);
+        $this->middleware(['auth', 'roles:Almacen,admin']);
     }
 
 public function index()

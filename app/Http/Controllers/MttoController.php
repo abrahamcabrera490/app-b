@@ -9,7 +9,7 @@ class MttoController extends Controller
 
     function __construct()
     {
-        $this->middleware(['auth', 'roles:admin']);
+        $this->middleware(['auth', 'roles:Mantenimiento']);
     }
 
 public function index()

@@ -9,7 +9,7 @@ class LogisticaController extends Controller
 
     function __construct()
     {
-        $this->middleware(['auth', 'roles:admin']);
+        $this->middleware(['auth', 'roles:logistica']);
     }
 
 public function index()

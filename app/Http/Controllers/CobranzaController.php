@@ -9,7 +9,7 @@ class CobranzaController extends Controller
 
     function __construct()
     {
-        $this->middleware(['auth', 'roles:admin']);
+        $this->middleware(['auth', 'roles:cobranza,admin']);
     }
 
 public function index()

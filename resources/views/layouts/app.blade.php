@@ -95,17 +95,17 @@
                                 <a class="dropdown-item" href="{{route('logistica')}}">logistica</a>
                                 @endif
                         
-                             @if (auth()->user()->hasRoles(['mantenimiento', '8']) )
+                             @if (auth()->user()->hasRoles(['Mantenimiento', '9']) )
                                 <a class="dropdown-item" href="{{route('mtto')}}">Mantenimiento</a>
                                 @endif
                         
-                             @if (auth()->user()->hasRoles(['PRoduccion', '10']) )
+                             @if (auth()->user()->hasRoles(['Produccion', '10']) )
                                 <a class="dropdown-item" href="{{route('produc')}}">Produccion</a>
                                 @endif
                         
                           
                         
-                             @if (auth()->user()->hasRoles(['rh', '11']) )
+                             @if (auth()->user()->hasRoles(['RH', '11']) )
                                 <a class="dropdown-item" href="{{route('rh')}}">Recursos Humanos</a>
                                 @endif
                         

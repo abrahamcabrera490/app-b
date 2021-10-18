@@ -9,7 +9,7 @@ class RhController extends Controller
 
     function __construct()
     {
-        $this->middleware(['auth', 'roles:admin']);
+        $this->middleware(['auth', 'roles:RH']);
     }
 
 public function index()
