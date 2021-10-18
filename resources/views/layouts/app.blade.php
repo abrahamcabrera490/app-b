@@ -65,47 +65,47 @@
                             @endif
                         @else
                         <li class="nav-item dropdown">
-                            <a class="nav-link dropdown-toggle" data-toggle="dropdown" href="#" role="button" aria-haspopup="true" aria-expanded="false">Departamento</a>
+                            <a class="nav-link dropdown-toggle" data-toggle="dropdown" href="#" role="button" aria-haspopup="true" aria-expanded="false">Indicadores</a>
                             <div class="dropdown-menu">
                              @if (auth()->user()->hasRoles(['admin', '1','2']) )
                                 <a class="dropdown-item" href="{{route('sistemas')}}">Sistemas</a>
                                 @endif
                         
-                             @if (auth()->user()->hasRoles(['admin', '1','2']) )
+                             @if (auth()->user()->hasRoles(['Administracion', '4']) )
                                 <a class="dropdown-item" href="{{route('admon')}}">Administracion</a>
                                 @endif
                         
-                             @if (auth()->user()->hasRoles(['admin', '1','2']) )
+                             @if (auth()->user()->hasRoles(['Almacen', '5']) )
                                 <a class="dropdown-item" href="{{route('almacen')}}">Almacen</a>
                                 @endif
                         
-                             @if (auth()->user()->hasRoles(['admin', '1','2']) )
+                             @if (auth()->user()->hasRoles(['cobranz', '6']) )
                                 <a class="dropdown-item" href="{{route('cobranza')}}">cobranza</a>
                                 @endif
                         
-                             @if (auth()->user()->hasRoles(['admin', '1','2']) )
+                             @if (auth()->user()->hasRoles(['compras', '3']) )
                                 <a class="dropdown-item" href="{{route('compras')}}">compras</a>
                                 @endif
                         
-                             @if (auth()->user()->hasRoles(['admin', '1','2']) )
+                             @if (auth()->user()->hasRoles(['contabilidad', '7']) )
                                 <a class="dropdown-item" href="{{route('conta')}}">Contabilidad</a>
                                 @endif
                         
-                             @if (auth()->user()->hasRoles(['admin', '1','2']) )
+                             @if (auth()->user()->hasRoles(['logistica', '8']) )
                                 <a class="dropdown-item" href="{{route('logistica')}}">logistica</a>
                                 @endif
                         
-                             @if (auth()->user()->hasRoles(['admin', '1','2']) )
+                             @if (auth()->user()->hasRoles(['mantenimiento', '8']) )
                                 <a class="dropdown-item" href="{{route('mtto')}}">Mantenimiento</a>
                                 @endif
                         
-                             @if (auth()->user()->hasRoles(['admin', '1','2']) )
+                             @if (auth()->user()->hasRoles(['PRoduccion', '10']) )
                                 <a class="dropdown-item" href="{{route('produc')}}">Produccion</a>
                                 @endif
                         
                           
                         
-                             @if (auth()->user()->hasRoles(['admin', '1','2']) )
+                             @if (auth()->user()->hasRoles(['rh', '11']) )
                                 <a class="dropdown-item" href="{{route('rh')}}">Recursos Humanos</a>
                                 @endif
                         
