@@ -17,7 +17,10 @@ public function index()
 
 
     $data = DB::table('sistemas') ->get();
-    return view('sistemas.index',compact('data'));
+    $data2 = DB::table('con_dpto_sys') ->get();
+    $mespasado= DB::select("SELECT * FROM  sistemas WHERE MONTH(fecha)=  MONTH(NOW())-1");
+    $fechaactual= DB::select("SELECT *  FROM  sistemas WHERE MONTH(fecha)=  MONTH(NOW())");
+    return view('sistemas.index',compact('data','data2','mespasado','fechaactual'));
 }
 
 public function prom(Request $request)
@@ -36,7 +39,7 @@ public function prom(Request $request)
        $op2 = $y->PROM2;
    }
 
-$promedio=($op2*100)/$op1;
+$promedio=($op1*100)/$op2;
   
 return response(json_encode($promedio),200)->header('content-type','text/plain');
 }

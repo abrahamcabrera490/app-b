@@ -12,7 +12,7 @@
       <a class="nav-link" id="pills-profile-tab" data-toggle="pill" href="#pills-profile" role="tab" aria-controls="pills-profile" aria-selected="false">Capturar</a>
     </li>
     <li class="nav-item">
-      <a class="nav-link" id="pills-contact-tab" data-toggle="pill" href="#pills-contact" role="tab" aria-controls="pills-contact" aria-selected="false">Grafica</a>
+      <a class="nav-link" id="pills-contact-tab" data-toggle="pill" href="#pills-contact" role="tab" aria-controls="pills-contact" aria-selected="false">Rendimiento</a>
     </li>
   </ul>
   <div class="tab-content" id="pills-tabContent">
@@ -74,185 +74,19 @@
                                     </thead>
                                     <tbody>
                                         <tr>
-                                            <th scope="row">1</th>
-                                            <td><input type="text" readonly class ="col-md-12" name="des1[]"  value="Mantenimiento Preventivo"  ></td>
+                                            @foreach ( $data2 as $indi )
+                                                
+                                            <th scope="row">{{$indi->id}}</th>
+                                            <td><input type="text" readonly class ="col-md-12" name="des1[]"  value="{{$indi->Description}}"  ></td>
                                             <td><input type="number" width="35" name="eventos[]" required > </td>
-                                             
-                                             
                                             <td><textarea type="text" width="35" name="Observaciones[]" required></textarea></td>
                                             <td><input type="date" name="fecha" value="<?php echo date('Y-m-d'); ?>"  readonly/></td>
-                                        </tr>
-                                        <tr>
-                                            <th scope="row">2</th>
-                                            <td><input type="text" class="col-md-12" name="des1[]" value = "Mantenimiento correctivo" readonly></td>
-                                            <td><input type="number" width="35" name="eventos[]" required > </td>
-                                             
-                                             
-                                            <td><textarea type="text" width="35" name="Observaciones[]" required></textarea></td>
-                                             <td><input type="date" value="<?php echo date('Y-m-d'); ?>"  readonly/></td>
-                                        </tr>
-                                        <tr>
-                                            <th scope="row">3</th>
-                                            <td><input type="text"  value="Lineas telefonicas locales" name="des1[]" readonly class="col-md-12"></td>
-                                            <td><input type="number" width="35" name="eventos[]" required > </td>
-                                             
-                                             
-                                            <td><textarea type="text" width="35" name="Observaciones[]" required></textarea></td>
-                                             <td><input type="date" value="<?php echo date('Y-m-d'); ?>"  readonly/></td>
-                                        </tr>
+                                        </tr>    
+                                            @endforeach
+
+                                        </tbody>
                         
-                                        <tr>
-                                            <th scope="row">4</th>
-                                            <td><input type="text" name="des1[]" value="Lineas telefonicas Celulares" readonly class="col-md-12"></td>
-                                            <td><input type="number" width="35" name="eventos[]" required > </td>
-                                             
-                                             
-                                            <td><textarea type="text" width="35" name="Observaciones[]" required></textarea></td>
-                                             <td><input type="date" value="<?php echo date('Y-m-d'); ?>"  readonly/></td>
-                                        </tr>
-                                        <tr>
-                                            <th scope="row">5</th>
-                                            <td><input type="text" name="des1[]"  value="Equipos Reparacion" readonly class="col-md-12"></td>
-                                            <td><input type="number" width="35" name="eventos[]" required > </td>
-                                             
-                                             
-                                            <td><textarea type="text" width="35" name="Observaciones[]" required></textarea></td>
-                                             <td><input type="date" value="<?php echo date('Y-m-d'); ?>"  readonly/></td>
-                                        </tr>
-                                        <tr>
-                                            <th scope="row">6</th>
-                                            <td><input type="text" name="des1[]" value="Equipos Renovacion" readonly class="col-md-12"></td>
-                                            <td><input type="number" width="35" name="eventos[]" required > </td>
-                                             
-                                             
-                                            <td><textarea type="text" width="35" name="Observaciones[]" required></textarea></td>
-                                             <td><input type="date" value="<?php echo date('Y-m-d'); ?>"  readonly/></td>
-                                        </tr>
-                                        <tr>
-                                            <th scope="row">7</th>
-                                            <td><input type="text" name="des1[]" value="Atencion a fallas" readonly class="col-md-12"></td>
-                                            <td><input type="number" width="35" name="eventos[]" required > </td>
-                                             
-                                             
-                                            <td><textarea type="text" width="35" name="Observaciones[]" required></textarea></td>
-                                             <td><input type="date" value="<?php echo date('Y-m-d'); ?>"  readonly/></td>
-                                        </tr>
-                                        <tr>
-                                            <th scope="row">8</th>
-                                            <td><input type="text" name="des1[]" value="Cracion y renovacion de reportes" readonly class="col-md-12"></td>
-                                            <td><input type="number" width="35" name="eventos[]" required > </td>
-                                             
-                                             
-                                            <td><textarea type="text" width="35" name="Observaciones[]" required></textarea></td>
-                                             <td><input type="date" value="<?php echo date('Y-m-d'); ?>"  readonly/></td>
-                                        </tr>
-                                        <tr>
-                                            <th scope="row">9</th>
-                                            <td><input type="text" value="Redes y antenas" name="des1[]" readonly class="col-md-12"></td>
-                                            <td><input type="number" width="35" name="eventos[]" required > </td>
-                                             
-                                             
-                                            <td><textarea type="text" width="35" name="Observaciones[]" required></textarea></td>
-                                             <td><input type="date" value="<?php echo date('Y-m-d'); ?>"  readonly/></td>
-                                        </tr>             
-                                           <tr>
-                                            <th scope="row">10</th>
-                                            <td><input type="text" value="Respaldo a servidores" name="des1[]" readonly class="col-md-12"></td>
-                                            <td><input type="number" width="35" name="eventos[]" required > </td>
-                                             
-                                             
-                                            <td><textarea type="text" width="35" name="Observaciones[]" required></textarea></td>
-                                             <td><input type="date" value="<?php echo date('Y-m-d'); ?>"  readonly/></td>
-                                        </tr>
-                        
-                                        <tr>
-                                            <th scope="row">11</th>
-                                            <td><input type="text" name="des1[]" value="Respaldo a Usuarios" readonly class="col-md-12"></td>
-                                            <td><input type="number" width="35" name="eventos[] " required > </td>
-                                             
-                                             
-                                            <td><input type="text" width="35"   name="Observaciones[]" required></td>
-                                             <td><input type="date" value="<?php echo date('Y-m-d'); ?>"  readonly/></td>
-                                        </tr>
-                                        <tr>
-                                            <th scope="row">12</th>
-                                            <td><input type="text" name="des1[]"  value="Proyectos" readonly class="col-md-12"></td>
-                                            <td><input type="number" width="35" name="eventos[]" required > </td>
-                                             
-                                             
-                                            <td><textarea type="text" width="35" name="Observaciones[]" required></textarea></td>
-                                             <td><input type="date" value="<?php echo date('Y-m-d'); ?>"  readonly/></td>
-                                        </tr>
-                                        <tr>
-                                            <th scope="row">13</th>
-                                            <td><input type="text" name="des1[]" value="Monitoreo video vigilancia" readonly class="col-md-12"></td>
-                                            <td><input type="number" width="35" name="eventos[]" required > </td>
-                                             
-                                             
-                                            <td><textarea type="text" width="35" name="Observaciones[]" required></textarea></td>
-                                             <td><input type="date" value="<?php echo date('Y-m-d'); ?>"  readonly/></td>
-                                        </tr>
-                        
-                                        <tr>
-                                            <th scope="row">14</th>
-                                            <td><input type="text" name="des1[]" readonly value="Monitoreo Seguridad Informatica" class="col-md-12"></td>
-                                            <td><input type="number" width="35" name="eventos[]" required > </td>
-                                             
-                                             
-                                            <td><textarea type="text" width="35" name="Observaciones[]" required></textarea></td>
-                                             <td><input type="date" value="<?php echo date('Y-m-d'); ?>"  readonly/></td>
-                                        </tr>
-                                        <tr>
-                                            <th scope="row">15</th>
-                                            <td><input type="text" value ="Impresoras y consumibles" name="des1[]" readonly class="col-md-12"></td>
-                                            <td><input type="number" width="35" name="eventos[]" required > </td>
-                                             
-                                             
-                                            <td><textarea type="text" width="35" name="Observaciones[]" required></textarea></td>
-                                             <td><input type="date" value="<?php echo date('Y-m-d'); ?>"  readonly/></td>
-                                        </tr>
-                                        <tr>
-                                            <th scope="row">16</th>
-                                            <td><input type="text" value="ERP software administrativo" name="des1[]" readonly class="col-md-12"></td>
-                                            <td><input type="number" width="35" name="eventos[]" required > </td>
-                                             
-                                             
-                                            <td><textarea type="text" width="35" name="Observaciones[]" required></textarea></td>
-                                             <td><input type="date" value="<?php echo date('Y-m-d'); ?>"  readonly/></td>
-                                        </tr>
-                        
-                        
-                                        <tr>
-                                            <th scope="row">17</th>
-                                            <td><input type="text" value="software especializado" name="des1[]" readonly class="col-md-12"></td>
-                                            <td><input type="number" width="35" name="eventos[]" required > </td>
-                                             
-                                             
-                                            <td><textarea type="text" width="35" name="Observaciones[]" required></textarea></td>
-                                             <td><input type="date" value="<?php echo date('Y-m-d'); ?>"  readonly/></td>
-                                        </tr>
-                                        <tr>
-                                            <th scope="row">18</th>
-                                            <td><input type="text" value="Multimedia" name="des1[]"  readonly class="col-md-12"></td>
-                                            <td><input type="number" width="35" name="eventos[]" required > </td>
-                                             
-                                             
-                                            <td><textarea type="text" width="35" name="Observaciones[]" required></textarea></td>
-                                             <td><input type="date" value="<?php echo date('Y-m-d'); ?>"  readonly/></td>
-                                        </tr>
-                                        <tr>
-                                            <th scope="row">19</th>
-                                            <td><input type="text" value="Provedores y consumibles" name="des1[]" readonly class="col-md-12"></td>
-                                            <td><input type="number" width="35" name="eventos[]" required > </td>
-                                             
-                                             
-                                            <td><textarea type="text" width="35" name="Observaciones[]" required></textarea></td>
-                                             <td><input type="date" value="<?php echo date('Y-m-d'); ?>"  readonly/></td>
-                                        </tr>
-                        
-                                    </tbody>
-                        
-                                </table>
+                                    </table>
                         <button type="submit" class="btn btn-warning" >Capturar datos</button>
                         
                                 </form>
@@ -268,19 +102,95 @@
                 </div>
             </div>
         </div>
+
+
+
         <div class="tab-pane fade" id="pills-contact" role="tabpanel" aria-labelledby="pills-contact-tab">
 
-            <div class="container">
+                 <table class=" col-xl-12 col-md-12 col-xs-6 table table-responsive table-striped">
+                                    <thead>
+                                        <tr>
+                                            
+                                            <th scope="col">Descripcion</th>
+                                            <th scope="col">Evento Del mes</th>
+                                            <th scope="col">Evento del mes anterior</th>
+                                            <th scope="col">porcentaje</th>
+                                            <th scope="col">Incremento o Decremento</th>
+                                            <th scope="col">Grafica</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr>
+                       @if ($mespasado == null)
+                       @foreach ( $fechaactual as $fa )
+                       <tr>
+                       <td>{{$fa->desctription}}</td>
+                                            
+                       <td> {{$fa->eventos}} </td>
+                       <td> sin eventos </td>
+                       <td>100%</td>    
+                       </tr>
+                        @endforeach   
+                       @else
+                           
+                        
+                        @for ($z = 0 ; $z <count($fechaactual) ; $z++)
+                        
+                        
+    
+
+                                 
+                                            <td>{{$fechaactual[$z]->desctription}}</td>
+                                            <td> {{$fechaactual[$z]->eventos}} </td>
+                                            <td> {{$mespasado[$z]->eventos}} </td>
+
+                                            @if ($mespasado[$z]->eventos == 0)
+                                                
+                                            <td> 100% </td>
+                                            <td>0%</td>
+                                            <td>
+                                            <div class="progress ">
+                                                <div class="progress-bar" role="progressbar" style="width: 100%;" aria-valuenow="100" aria-valuemin="0" aria-valuemax="100">100%</div>
+                                              </div>
+                                            </td>
+                                              @else
+                                            <td> {{$fechaactual[$z]->eventos*100/$mespasado[$z]->eventos }}% </td>
+                                            
+                                                @if ( $fechaactual[$z]->eventos*100/$mespasado[$z]->eventos - 100 <0)
+                                                <td  style="color: red;"> {{ ($N = $fechaactual[$z]->eventos*100/$mespasado[$z]->eventos) - 100 }} % </td>        
+
+                                               
+                                                @elseif($fechaactual[$z]->eventos*100/$mespasado[$z]->eventos - 100 >=0)
+                                                 <td > {{ ($N = $fechaactual[$z]->eventos*100/$mespasado[$z]->eventos) - 100 }} % </td>
+                                                @endif
+                                                <td>
+                                                    <div class="progress ">
+                                                        <div class="progress-bar" role="progressbar" style="width: {{$fechaactual[$z]->eventos*100/$mespasado[$z]->eventos}}%;" aria-valuenow="{{$fechaactual[$z]->eventos*100/$mespasado[$z]->eventos}}" aria-valuemin="0" aria-valuemax="100">{{$fechaactual[$z]->eventos*100/$mespasado[$z]->eventos}}%</div>
+                                                      </div>
+                                                    </td>
+                                            @endif
+                                                                                       
+                                        </tr>    
+                                        @endfor             
+                                            @endif
+                                        </tbody>
+                        
+                        
+                                    </table>
+      <!--  
+         <div class="container">
                 <div class="col-md-8 center-block">
-                    <h1>  RENDIMIENTO DEPARTAMENTO  </h1>
+                    <h1>  Estado del area VS mes anterior  </h1>
                     <h2 id="porcentaje"></h2>
             <canvas id="myChart" class="row col-md-8"></canvas>
                 </div>
             </div>
-
+        -->
 
         </div>     
-        
+    
+
+
        
     </div>
    
@@ -311,15 +221,15 @@ $.ajax({
             labels: ['indicador'],
             datasets: [{
                 label: 'indicadores',
-                data: [x1, resta],
+                data: [x1],
                 backgroundColor: [
                     'rgba(6, 9, 97, 0.2)',
-                    'rgba(255, 255, 255, 0.2)',
+                   
                     
                 ],
                 borderColor: [
                     'rgba(6, 9, 97, 1)',
-                    'rgba(255, 255, 255, 1)',
+                   
                     
                 ],
                 borderWidth: 1
