@@ -4,7 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
-class SistemasController extends Controller
+class CalidadController extends Controller
 {
 
     function __construct()
@@ -15,31 +15,30 @@ class SistemasController extends Controller
 public function index()
 {
 
-
-    $data = DB::table('sistemas') ->get();
-    return view('sistemas.index',compact('data'));
+    $data2 = DB::table('tbl_calidad') ->get();
+    $data = DB::table('calidad') ->get();
+    return view('calidad.index',compact('data','data2'));
 }
 
-public function prom(Request $request)
+
+
+public function consultaf(Request $request)
 {
+    $mes = $request->input('month');
+    $mesii = $request->input('month2');
+    $resultado= DB::select("SELECT * FROM calidad WHERE DATE_FORMAT(fecha, '%Y-%m') = '$mes'");
+    $resultadoii= DB::select("SELECT * FROM calidad WHERE DATE_FORMAT(fecha, '%Y-%m') = '$mesii'");
 
-    $mespasado= DB::select("SELECT AVG(eventos) AS PROM1 FROM  sistemas WHERE MONTH(fecha)=  MONTH(NOW())-1");
-    $fechaactual= DB::select("SELECT AVG(eventos) as PROM2 FROM  sistemas WHERE MONTH(fecha)=  MONTH(NOW())");
-    
-   foreach($mespasado as $x)
-   {
-       $op1 = $x->PROM1;
-   }
+     $concentrado  = array();
 
-   foreach($fechaactual as $y)
-   {
-       $op2 = $y->PROM2;
-   }
+     $concentrado[] = $resultado;
+     $concentrado[] = $resultadoii;
 
-$promedio=($op2*100)/$op1;
-  
-return response(json_encode($promedio),200)->header('content-type','text/plain');
+
+    return response(json_encode($concentrado),200)->header('content-type','text/plain');
 }
+
+
 
 public function cap(Request $request)    {
 
@@ -58,19 +57,19 @@ $des = $request->input('des1');
 $obs =  $request->input('Observaciones');
 $eventos = $request->input('eventos');
 $inicio = count($des);
-
+$fecha = date('Y-m-d');
 for($i = 0; $i<$inicio; $i++)
 {
-    $indicador = DB::table('sistemas')->insert(array(
+    $indicador = DB::table('calidad')->insert(array(
         'description' => $des[$i],
         'observaciones' => $obs[$i],
         'eventos' => $eventos[$i],
-        'user_id' => auth()->user()->id,
-        'fecha'=> date('d-m-y')
+        'user_name' => auth()->user()->name,
+        'fecha'=> $fecha
     ));
 }
         
-return redirect('/sistemas');
+return redirect('/calidad');
     }//finde la fun
 
 }

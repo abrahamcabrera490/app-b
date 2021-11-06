@@ -32,6 +32,7 @@ Route::get('/', [App\Http\Controllers\HomeController::class, 'index'])->name('ho
 Route::get('/sistemas', [App\Http\Controllers\SistemasController::class, 'index'])->name('sistemas');
 Route::get('/admon', [App\Http\Controllers\AdmonController::class, 'index'])->name('admon');
 Route::get('/almacen', [App\Http\Controllers\AlmacenController::class, 'index'])->name('almacen');
+Route::get('/calidad', [App\Http\Controllers\CalidadController::class, 'index'])->name('calidad');
 Route::get('/cobranza', [App\Http\Controllers\CobranzaController::class, 'index'])->name('cobranza');
 Route::get('/compras', [App\Http\Controllers\ComprasController::class, 'index'])->name('compras');
 Route::get('/conta', [App\Http\Controllers\ContaController::class, 'index'])->name('conta');
@@ -50,11 +51,39 @@ Route::get('/rh', [App\Http\Controllers\RhController::class, 'index'])->name('rh
 
 /* ||||||======== Rutas index departamentos ======|||||*/
 
+Route::get('/bf', [App\Http\Controllers\SistemasController::class, 'bf'])->name('bf');
+Route::GET('/consultaf', [App\Http\Controllers\SistemasController::class, 'consultaf'])->name('consultaf');
+
+
+Route::get('/gerente', [App\Http\Controllers\GerenciaController::class, 'index'])->name('gerente');
+
+/*================================RUTAS API CONSULTA DEPARTAMENTOS================================*/
+/*=====================================================================================================*/
+Route::GET('/admonconsultaf', [App\Http\Controllers\AdmonController::class, 'consultaf'])->name('admonconsultaf');
+Route::get('/almacenbf', [App\Http\Controllers\AlmacenController::class, 'consultaf'])->name('almacenbf');
+Route::get('/calidadbf', [App\Http\Controllers\CalidadController::class, 'consultaf'])->name('calidadbf');
+Route::get('/cobranzabf', [App\Http\Controllers\CobranzaController::class, 'consultaf'])->name('bf');
+Route::get('/comprasbf', [App\Http\Controllers\ComprasController::class, 'consultaf'])->name('comprasbf');
+Route::get('/contabf', [App\Http\Controllers\ContaController::class, 'consultaf'])->name('contabf');
+Route::get('/logisticabf', [App\Http\Controllers\LogisticaController::class, 'consultaf'])->name('logisticabf');
+Route::get('/mttobf', [App\Http\Controllers\MttoController::class, 'consultaf'])->name('mttobf');
+Route::get('/pedidosbf', [App\Http\Controllers\PedidosController::class, 'consultaf'])->name('pedidosbf');
+Route::get('/produccionbf', [App\Http\Controllers\ProduccionController::class, 'consultaf'])->name('produccionbf');
+Route::get('/rhbf', [App\Http\Controllers\RhController::class, 'consultaf'])->name('rhbf');
+
+
+
+
+
+
+/*=====================================================================================================*/
+/*================================FIN RUTAS API CONSULTA DEPARTAMENTOS================================*/
 
 /**==========| Accion Captura de datos |========== **/
 Route::post('/cap', [App\Http\Controllers\SistemasController::class, 'cap'])->name('cap');
 Route::post('/admoncap', [App\Http\Controllers\AdmonController::class, 'cap'])->name('admoncap');
 Route::post('/almacencap', [App\Http\Controllers\AlmacenController::class, 'cap'])->name('almacencap');
+Route::post('/calidadcap', [App\Http\Controllers\CalidadController::class, 'cap'])->name('calidadcap');
 Route::post('/cobranzacap', [App\Http\Controllers\CobranzaController::class, 'cap'])->name('cobranzacap');
 Route::post('/comprascap', [App\Http\Controllers\ComprasController::class, 'cap'])->name('comprascap');
 Route::post('/contacap', [App\Http\Controllers\ContaController::class, 'cap'])->name('contacap');

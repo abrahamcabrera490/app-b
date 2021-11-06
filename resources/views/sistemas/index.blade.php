@@ -105,151 +105,178 @@
 
 
 
-        <div class="tab-pane fade" id="pills-contact" role="tabpanel" aria-labelledby="pills-contact-tab">
+        <div class="container" class="tab-pane fade" id="pills-contact" role="tabpanel" aria-labelledby="pills-contact-tab">
+           
+           <div class="row col-md-12">
+               <div class="center-block">
+                   <div class="container col-md-8">
+            <form id="frmdate" name="frmdate" style="margin: 0px auto;" class=" center-block" action="" method="GET">
+                @csrf
+                    @method('GET')
+            <label class="row" for="month">Ingresa Primer Mes</label>
+            <input class="row" type="month"  name="month" id="month">
+            <br>
+            <label class="row" for="month2">Ingresa segundo Mes</label> 
+            <input type="month"  name="month2" id="month"><br><br>
+            <input class="btn btn-info" type="submit"  value="CONSULTA"> <br>
+            <br>
+            
 
-                 <table class=" col-xl-12 col-md-12 col-xs-6 table table-responsive table-striped">
-                                    <thead>
-                                        <tr>
-                                            
-                                            <th scope="col">Descripcion</th>
-                                            <th scope="col">Evento Del mes</th>
-                                            <th scope="col">Evento del mes anterior</th>
-                                            <th scope="col">porcentaje</th>
-                                            <th scope="col">Incremento o Decremento</th>
-                                            <th scope="col">Grafica</th>
-                                        </tr>
-                                    </thead>
-                                    <tbody>
-                                        <tr>
-                       @if ($mespasado == null)
-                       @foreach ( $fechaactual as $fa )
-                       <tr>
-                       <td>{{$fa->desctription}}</td>
-                                            
-                       <td> {{$fa->eventos}} </td>
-                       <td> sin eventos </td>
-                       <td>100%</td>    
-                       </tr>
-                        @endforeach   
-                       @else
-                           
-                        
-                        @for ($z = 0 ; $z <count($fechaactual) ; $z++)
-                        
-                        
-    
 
-                                 
-                                            <td>{{$fechaactual[$z]->desctription}}</td>
-                                            <td> {{$fechaactual[$z]->eventos}} </td>
-                                            <td> {{$mespasado[$z]->eventos}} </td>
+            <button hidden class="btn btn-success float-rigth" onclick="exportTableToExcel('data_table')">Enviar a Excel</button> &nbsp;
+            <button hidden class="btn btn-danger float-rigth" onclick="printPDF()">enviar a Pdf</button>
+            </form>
+        </div>
+            <div >
 
-                                            @if ($mespasado[$z]->eventos == 0)
-                                                
-                                            <td> 100% </td>
-                                            <td>0%</td>
-                                            <td>
-                                            <div class="progress ">
-                                                <div class="progress-bar" role="progressbar" style="width: 100%;" aria-valuenow="100" aria-valuemin="0" aria-valuemax="100">100%</div>
-                                              </div>
-                                            </td>
-                                              @else
-                                            <td> {{$fechaactual[$z]->eventos*100/$mespasado[$z]->eventos }}% </td>
-                                            
-                                                @if ( $fechaactual[$z]->eventos*100/$mespasado[$z]->eventos - 100 <0)
-                                                <td  style="color: red;"> {{ ($N = $fechaactual[$z]->eventos*100/$mespasado[$z]->eventos) - 100 }} % </td>        
+                <br>
 
-                                               
-                                                @elseif($fechaactual[$z]->eventos*100/$mespasado[$z]->eventos - 100 >=0)
-                                                 <td > {{ ($N = $fechaactual[$z]->eventos*100/$mespasado[$z]->eventos) - 100 }} % </td>
-                                                @endif
-                                                <td>
-                                                    <div class="progress ">
-                                                        <div class="progress-bar" role="progressbar" style="width: {{$fechaactual[$z]->eventos*100/$mespasado[$z]->eventos}}%;" aria-valuenow="{{$fechaactual[$z]->eventos*100/$mespasado[$z]->eventos}}" aria-valuemin="0" aria-valuemax="100">{{$fechaactual[$z]->eventos*100/$mespasado[$z]->eventos}}%</div>
-                                                      </div>
-                                                    </td>
-                                            @endif
-                                                                                       
-                                        </tr>    
-                                        @endfor             
-                                            @endif
-                                        </tbody>
-                        
-                        
-                                    </table>
-      <!--  
-         <div class="container">
-                <div class="col-md-8 center-block">
-                    <h1>  Estado del area VS mes anterior  </h1>
-                    <h2 id="porcentaje"></h2>
-            <canvas id="myChart" class="row col-md-8"></canvas>
-                </div>
+              
             </div>
-        -->
-
+            <table id="data_table" class=" col-xl-12 col-md-12 col-xs-6 table table-responsive table-striped">
+                <thead>
+                    <tr>
+                        
+                        <th scope="col">Descripcion</th>
+                        <th scope="col">Eventos  mes uno</th>
+                        <th scope="col">Eventos  mes dos</th>
+                        <th scope="col">porcentaje</th>
+                        <th scope="col">Incremento o Decremento</th>
+                        <th scope="col">Grafica</th>
+                    </tr>
+                </thead>
+                <tbody id="mensaje" >
+                 
+                </tbody>       
+         
         </div>     
     
+    </div>
 
-
-       
+    </div>
     </div>
    
   </div>
+            
+            </div>
+            
+            </div>
+         
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.4.0/jspdf.umd.min.js"></script>
+
   <script>
-
-
-$.ajax({
-    url:'prom',
-    method:'GET',
-    data:{
-        id:1,
-        _token: $('input[name="_token"]').val()
-    }
-}).done(function(res){
-   
-    var x1 = JSON.parse(res);
-    console.log(x1);
-   document.getElementById('porcentaje').innerHTML = parseFloat(x1).toFixed(2) + " %";
-   resta =  parseFloat(x1).toFixed(2) - 100;
-
-
-    //Grafica
-    var ctx = document.getElementById('myChart');
-    var myChart = new Chart(ctx, {
-        type: 'doughnut',
-        data: {
-            labels: ['indicador'],
-            datasets: [{
-                label: 'indicadores',
-                data: [x1],
-                backgroundColor: [
-                    'rgba(6, 9, 97, 0.2)',
-                   
-                    
-                ],
-                borderColor: [
-                    'rgba(6, 9, 97, 1)',
-                   
-                    
-                ],
-                borderWidth: 1
-            }]
-        },
-        options: {
-            scales: {
-                y: {
-                    beginAtZero: true
-                }
-            }
-        }
+      
+    $(document).on("ready", function(){
+        SendData();
     });
+    
+    function SendData(){
+        $("#frmdate").on("submit",function(e){
+    
+            e.preventDefault();
+            var frm = $(this).serialize();
+            $.ajax({
+                method:"GET",
+                url:"consultaf",
+                data:frm
+            }).done( function( info){
+    //MOSTRAMOS  RESPUESTA del server
+    var x1 = JSON.parse(info);
+    var n = x1[0].length;
+    
+    console.log(n); 
+    var tabla
+    var tablaii
+    for(var i = 0; i<n; i++)
+    {
+    var m = '';
+    
+        if(x1[1][i].eventos == 0 ){
+                   m = 100.00;
+                }
+        else{
+                   m = (x1[1][i].eventos*100/x1[0][i].eventos).toFixed(0);
+     
+                }
+    tabla +=  `<tr>  <td>  ${x1[0][i].desctription}  </td> 
+                <td> ${ x1[0][i].eventos}  </td>
+                <td> ${ x1[1][i].eventos}  </td>
+                <td> ${ m}%  </td>
+                <td> ${ m - 100 }%  </td>
+                <td>
+                <div class="progress ">
+                 <div class="progress-bar" role="progressbar" style="width: ${m}%;" aria-valuenow="${m}" aria-valuemin="0" aria-valuemax="100">${m}%</div>
+                    </div>
+                </td>
+                 
+            </tr>`;
+    
+    console.log(tabla);
+    
+    
+    }
+    
+    
+    $("#mensaje").html(tabla);
+    
+    
+    
+    
+            });
+        });
+    
+    
+    
+    
+$( document ).ready(function() {
+$(".export").click(function() {
+var export_type = $(this).data('export-type');
+$('#data_table').tableExport({
+type : export_type,
+escape : 'false',
+ignoreColumn: []
 });
+});
+});
+    
+    
+    
+    
+    }
 
+    function exportTableToExcel(tableID, filename = ''){
+    var downloadLink;
+    var dataType = 'application/vnd.ms-excel';
+    var tableSelect = document.getElementById(tableID);
+    var tableHTML = tableSelect.outerHTML.replace(/ /g, '%20');
+    
+    // Specify file name
+    filename = filename?filename+'.xls':'Indicadores.xls';
+    
+    // Create download link element
+    downloadLink = document.createElement("a");
+    
+    document.body.appendChild(downloadLink);
+    
+    if(navigator.msSaveOrOpenBlob){
+        var blob = new Blob(['ufeff', tableHTML], {
+            type: dataType
+        });
+        navigator.msSaveOrOpenBlob( blob, filename);
+    }else{
+        // Create a link to the file
+        downloadLink.href = 'data:' + dataType + ', ' + tableHTML;
+    
+        // Setting the file name
+        downloadLink.download = filename;
+        
+        //triggering the function
+        downloadLink.click();
+    }
+}
 
-   
-
-
-</script>
+    
+    </script>  
 @endsection
 
 

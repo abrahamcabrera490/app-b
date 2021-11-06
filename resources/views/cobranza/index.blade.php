@@ -12,7 +12,7 @@
       <a class="nav-link" id="pills-profile-tab" data-toggle="pill" href="#pills-profile" role="tab" aria-controls="pills-profile" aria-selected="false">Capturar</a>
     </li>
     <li class="nav-item">
-      <a class="nav-link" id="pills-contact-tab" data-toggle="pill" href="#pills-contact" role="tab" aria-controls="pills-contact" aria-selected="false">Grafica</a>
+      <a class="nav-link" id="pills-contact-tab" data-toggle="pill" href="#pills-contact" role="tab" aria-controls="pills-contact" aria-selected="false">Rendimiento</a>
     </li>
   </ul>
   <div class="tab-content" id="pills-tabContent">
@@ -62,205 +62,31 @@
                             <form action="{{ route('cobranzacap') }}" method="POST">
                                 @csrf
                                 @method('POST')
-                                <table class="table table-striped">
+                                <table class=" col-xl-12 col-md-12 col-xs-6 table table-responsive table-striped">
                                     <thead>
                                         <tr>
                                             <th scope="col">ID</th>
                                             <th scope="col">Descripcion</th>
-                                            <th scope="col">Eventos o Cantidad $</th>
+                                            <th scope="col">Eventos</th>
                                             <th scope="col">Observaciones</th>
+                                            <th scope="col">Fecha de captura</th>
                                         </tr>
                                     </thead>
                                     <tbody>
                                         <tr>
-                                            <th scope="row">1</th>
-                                            <td><input type="text" readonly class ="col-md-12" name="des1[]"  value="Reporte de cobranza efectiva"  ></td>
-                                            <td><input type="number" width="35" name="eventos[]" required > </td>
-                                             
-                                             
+                                            @foreach ( $data2 as $indi )
+                                                
+                                            <th scope="row">{{$indi->id}}</th>
+                                            <td><input type="text" readonly class ="col-md-12" name="des1[]"  value="{{$indi->Description}}"  ></td>
+                                            <td><input type="number" step="any" width="35" name="eventos[]" required > </td>
                                             <td><textarea type="text" width="35" name="Observaciones[]" required></textarea></td>
-                                            
-                                        </tr>
-                                        <tr>
-                                            <th scope="row">2</th>
-                                            <td><input type="text" class="col-md-12" name="des1[]" value = "Eficiencia de cobranza estipulada (Balance)" readonly></td>
-                                            <td><input type="number" width="35" name="eventos[]" required > </td>
-                                             
-                                             
-                                            <td><textarea type="text" width="35" name="Observaciones[]" required></textarea></td>
-                                            
-                                        </tr>
-                                        <tr>
-                                            <th scope="row">3</th>
-                                            <td><input type="text"  value="Porcentaje de recuperacion mensual" name="des1[]" readonly class="col-md-12"></td>
-                                            <td><input type="number" width="35" name="eventos[]" required > </td>
-                                             
-                                             
-                                            <td><textarea type="text" width="35" name="Observaciones[]" required></textarea></td>
-                                            
-                                        </tr>
+                                            <td><input type="date" name="fecha" value="<?php echo date('Y-m-d'); ?>"  readonly/></td>
+                                        </tr>    
+                                            @endforeach
+
+                                        </tbody>
                         
-                                        <tr>
-                                            <th scope="row">4</th>
-                                            <td><input type="text" name="des1[]" value="Clientes Nuevos Facturados" readonly class="col-md-12"></td>
-                                            <td><input type="number" width="35" name="eventos[]" required > </td>
-                                             
-                                             
-                                            <td><textarea type="text" width="35" name="Observaciones[]" required></textarea></td>
-                                            
-                                        </tr>
-                                        <tr>
-                                            <th scope="row">5</th>
-                                            <td><input type="text" name="des1[]"  value="Cuentas Morosas(Total)" readonly class="col-md-12"></td>
-                                            <td><input type="number" width="35" name="eventos[]" required > </td>
-                                             
-                                             
-                                            <td><textarea type="text" width="35" name="Observaciones[]" required></textarea></td>
-                                            
-                                        </tr>
-                                        <tr>
-                                            <th scope="row">6</th>
-                                            <td><input type="text" name="des1[]" value="Porcentaje total de Cobranza" readonly class="col-md-12"></td>
-                                            <td><input type="number" width="35" name="eventos[]" required > </td>
-                                             
-                                             
-                                            <td><textarea type="text" width="35" name="Observaciones[]" required></textarea></td>
-                                            
-                                        </tr>
-                                        <tr>
-                                            <th scope="row">7</th>
-                                            <td><input type="text" name="des1[]" value="Clientes con cantidad mas alta (Moroso)" readonly class="col-md-12"></td>
-                                            <td><input type="number" width="35" name="eventos[]" required > </td>
-                                             
-                                             
-                                            <td><textarea type="text" width="35" name="Observaciones[]" required></textarea></td>
-                                            
-                                        </tr>
-                                        <tr>
-                                            <th scope="row">8</th>
-                                            <td><input type="text" name="des1[]" value="Porcentaje que teprecenta en la cobranza (morosa)" readonly class="col-md-12"></td>
-                                            <td><input type="number" width="35" name="eventos[]" required > </td>
-                                             
-                                             
-                                            <td><textarea type="text" width="35" name="Observaciones[]" required></textarea></td>
-                                            
-                                        </tr>
-                                        <tr>
-                                            <th scope="row">9</th>
-                                            <td><input type="text" value="Dias de la cuenta en cantidad mas alta morosa" name="des1[]" readonly class="col-md-12"></td>
-                                            <td><input type="number" width="35" name="eventos[]" required > </td>
-                                             
-                                             
-                                            <td><textarea type="text" width="35" name="Observaciones[]" required></textarea></td>
-                                            
-                                        </tr>             
-                                           <tr>
-                                            <th scope="row">10</th>
-                                            <td><input type="text" value="clientes con mas dias de atraso" name="des1[]" readonly class="col-md-12"></td>
-                                            <td><input type="number" width="35" name="eventos[]" required > </td>
-                                             
-                                             
-                                            <td><textarea type="text" width="35" name="Observaciones[]" required></textarea></td>
-                                            
-                                        </tr>
-                        
-                                        <tr>
-                                            <th scope="row">11</th>
-                                            <td><input type="text" name="des1[]" value="Cantidad del cliente con mas atraso" readonly class="col-md-12"></td>
-                                            <td><input type="number" width="35" name="eventos[] " required > </td>
-                                             
-                                             
-                                            <td><input type="text" width="35"   name="Observaciones[]" required></td>
-                                            
-                                        </tr>
-                                        <tr>
-                                            <th scope="row">12</th>
-                                            <td><input type="text" name="des1[]"  value="Facturacion total" readonly class="col-md-12"></td>
-                                            <td><input type="number" width="35" name="eventos[]" required > </td>
-                                             
-                                             
-                                            <td><textarea type="text" width="35" name="Observaciones[]" required></textarea></td>
-                                            
-                                        </tr>
-                                        <tr>
-                                            <th scope="row">13</th>
-                                            <td><input type="text" name="des1[]" value="Clientes Facturados" readonly class="col-md-12"></td>
-                                            <td><input type="number" width="35" name="eventos[]" required > </td>
-                                             
-                                             
-                                            <td><textarea type="text" width="35" name="Observaciones[]" required></textarea></td>
-                                            
-                                        </tr>
-                        
-                                        <tr>
-                                            <th scope="row">14</th>
-                                            <td><input type="text" name="des1[]" readonly value="Notas de credito aplicadas" class="col-md-12"></td>
-                                            <td><input type="number" width="35" name="eventos[]" required > </td>
-                                             
-                                             
-                                            <td><textarea type="text" width="35" name="Observaciones[]" required></textarea></td>
-                                            
-                                        </tr>
-                                        <tr>
-                                            <th scope="row">15</th>
-                                            <td><input type="text" value ="Fcturas Canceladas" name="des1[]" readonly class="col-md-12"></td>
-                                            <td><input type="number" width="35" name="eventos[]" required > </td>
-                                             
-                                             
-                                            <td><textarea type="text" width="35" name="Observaciones[]" required></textarea></td>
-                                            
-                                        </tr>
-                                        <tr>
-                                            <th scope="row">16</th>
-                                            <td><input type="text" value="Total de facturas emitidas" name="des1[]" readonly class="col-md-12"></td>
-                                            <td><input type="number" width="35" name="eventos[]" required > </td>
-                                             
-                                             
-                                            <td><textarea type="text" width="35" name="Observaciones[]" required></textarea></td>
-                                            
-                                        </tr>
-                        
-                        
-                                        <tr>
-                                            <th scope="row">17</th>
-                                            <td><input type="text" value="Cantidad Facturada clientes nuevos" name="des1[]" readonly class="col-md-12"></td>
-                                            <td><input type="number" width="35" name="eventos[]" required > </td>
-                                             
-                                             
-                                            <td><textarea type="text" width="35" name="Observaciones[]" required></textarea></td>
-                                            
-                                        </tr>
-                                        <tr>
-                                            <th scope="row">18</th>
-                                            <td><input type="text" value="Cantidad facturada clientes nuevos" name="des1[]"  readonly class="col-md-12"></td>
-                                            <td><input type="number" width="35" name="eventos[]" required > </td>
-                                             
-                                             
-                                            <td><textarea type="text" width="35" name="Observaciones[]" required></textarea></td>
-                                            
-                                        </tr>
-                                        <tr>
-                                            <th scope="row">19</th>
-                                            <td><input type="text" value="Facturacion Nuplen" name="des1[]" readonly class="col-md-12"></td>
-                                            <td><input type="number" width="35" name="eventos[]" required > </td>
-                                             
-                                             
-                                            <td><textarea type="text" width="35" name="Observaciones[]" required></textarea></td>
-                                            
-                                        </tr>
-                                        <tr>
-                                            <th scope="row">20</th>
-                                            <td><input type="text" value="Cartas de cobro legales" name="des1[]" readonly class="col-md-12"></td>
-                                            <td><input type="number" width="35" name="eventos[]" required > </td>
-                                             
-                                             
-                                            <td><textarea type="text" width="35" name="Observaciones[]" required></textarea></td>
-                                            
-                                        </tr>
-                        
-                                    </tbody>
-                        
-                                </table>
+                                    </table>
                         <button type="submit" class="btn btn-warning" >Capturar datos</button>
                         
                                 </form>
@@ -276,78 +102,181 @@
                 </div>
             </div>
         </div>
-        <div class="tab-pane fade" id="pills-contact" role="tabpanel" aria-labelledby="pills-contact-tab">
 
-            <div class="container">
-                <div class="col-md-8 center-block">
-                    <h1>  RENDIMIENTO DEPARTAMENTO  </h1>
-                    <h2 id="porcentaje"></h2>
-            <canvas id="myChart" class="row col-md-8"></canvas>
-                </div>
+
+
+        <div class="container" class="tab-pane fade" id="pills-contact" role="tabpanel" aria-labelledby="pills-contact-tab">
+           
+           <div class="row col-md-12">
+               <div class="center-block">
+                   <div class="container col-md-8">
+            <form id="frmdate" name="frmdate" style="margin: 0px auto;" class=" center-block" action="" method="GET">
+                @csrf
+                    @method('GET')
+            <label class="row" for="month">Ingresa Primer Mes</label>
+            <input class="row" type="month"  name="month" id="month">
+            <br>
+            <label class="row" for="month2">Ingresa segundo Mes</label> 
+            <input type="month"  name="month2" id="month"><br><br>
+            <input class="btn btn-info" type="submit"  value="CONSULTA"> <br>
+            <br>
+            
+
+
+            <button hidden class="btn btn-success float-rigth" onclick="exportTableToExcel('data_table')">Enviar a Excel</button> &nbsp;
+            <button hidden class="btn btn-danger float-rigth" onclick="printPDF()">enviar a Pdf</button>
+            </form>
+        </div>
+            <div >
+
+                <br>
+
+              
             </div>
-
-
+            <table id="data_table" class=" col-xl-12 col-md-12 col-xs-6 table table-responsive table-striped">
+                <thead>
+                    <tr>
+                        
+                        <th scope="col">Descripcion</th>
+                        <th scope="col">Eventos  mes uno</th>
+                        <th scope="col">Eventos  mes dos</th>
+                        <th scope="col">porcentaje</th>
+                        <th scope="col">Incremento o Decremento</th>
+                        <th scope="col">Grafica</th>
+                    </tr>
+                </thead>
+                <tbody id="mensaje" >
+                 
+                </tbody>       
+         
         </div>     
-        
-       
+    
+    </div>
+
+    </div>
     </div>
    
   </div>
+            
+            </div>
+            
+            </div>
+         
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.4.0/jspdf.umd.min.js"></script>
+
   <script>
-
-
-$.ajax({
-    url:'prom',
-    method:'GET',
-    data:{
-        id:1,
-        _token: $('input[name="_token"]').val()
-    }
-}).done(function(res){
-   
-    var x1 = JSON.parse(res);
-    console.log(x1);
-   document.getElementById('porcentaje').innerHTML = parseFloat(x1).toFixed(2) + " %";
-   resta =  parseFloat(x1).toFixed(2) - 100;
-
-
-    //Grafica
-    var ctx = document.getElementById('myChart');
-    var myChart = new Chart(ctx, {
-        type: 'doughnut',
-        data: {
-            labels: ['indicador'],
-            datasets: [{
-                label: 'indicadores',
-                data: [x1, resta],
-                backgroundColor: [
-                    'rgba(6, 9, 97, 0.2)',
-                    'rgba(255, 255, 255, 0.2)',
-                    
-                ],
-                borderColor: [
-                    'rgba(6, 9, 97, 1)',
-                    'rgba(255, 255, 255, 1)',
-                    
-                ],
-                borderWidth: 1
-            }]
-        },
-        options: {
-            scales: {
-                y: {
-                    beginAtZero: true
-                }
-            }
-        }
+      
+    $(document).on("ready", function(){
+        SendData();
     });
+    
+    function SendData(){
+        $("#frmdate").on("submit",function(e){
+    
+            e.preventDefault();
+            var frm = $(this).serialize();
+            $.ajax({
+                method:"GET",
+                url:"cobranzabf",
+                data:frm
+            }).done( function( info){
+    //MOSTRAMOS  RESPUESTA del server
+    var x1 = JSON.parse(info);
+    var n = x1[0].length;
+    
+    console.log(n); 
+    var tabla
+    var tablaii
+    for(var i = 0; i<n; i++)
+    {
+    var m = '';
+    
+        if(x1[1][i].eventos == 0 ){
+                   m = 100.00;
+                }
+        else{
+                   m = (x1[1][i].eventos*100/x1[0][i].eventos).toFixed(0);
+     
+                }
+    tabla +=  `<tr>  <td>  ${x1[0][i].description}  </td> 
+                <td> ${ x1[0][i].eventos}  </td>
+                <td> ${ x1[1][i].eventos}  </td>
+                <td> ${ m}%  </td>
+                <td> ${ m - 100 }%  </td>
+                <td>
+                <div class="progress ">
+                 <div class="progress-bar" role="progressbar" style="width: ${m}%;" aria-valuenow="${m}" aria-valuemin="0" aria-valuemax="100">${m}%</div>
+                    </div>
+                </td>
+                 
+            </tr>`;
+    
+    console.log(tabla);
+    
+    
+    }
+    
+    
+    $("#mensaje").html(tabla);
+    
+    
+    
+    
+            });
+        });
+    
+    
+    
+    
+$( document ).ready(function() {
+$(".export").click(function() {
+var export_type = $(this).data('export-type');
+$('#data_table').tableExport({
+type : export_type,
+escape : 'false',
+ignoreColumn: []
 });
+});
+});
+    
+    
+    
+    
+    }
 
+    function exportTableToExcel(tableID, filename = ''){
+    var downloadLink;
+    var dataType = 'application/vnd.ms-excel';
+    var tableSelect = document.getElementById(tableID);
+    var tableHTML = tableSelect.outerHTML.replace(/ /g, '%20');
+    
+    // Specify file name
+    filename = filename?filename+'.xls':'Indicadores.xls';
+    
+    // Create download link element
+    downloadLink = document.createElement("a");
+    
+    document.body.appendChild(downloadLink);
+    
+    if(navigator.msSaveOrOpenBlob){
+        var blob = new Blob(['ufeff', tableHTML], {
+            type: dataType
+        });
+        navigator.msSaveOrOpenBlob( blob, filename);
+    }else{
+        // Create a link to the file
+        downloadLink.href = 'data:' + dataType + ', ' + tableHTML;
+    
+        // Setting the file name
+        downloadLink.download = filename;
+        
+        //triggering the function
+        downloadLink.click();
+    }
+}
 
-   
-
-
-</script>
+    
+    </script>  
 @endsection
 
 

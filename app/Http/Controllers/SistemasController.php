@@ -17,16 +17,36 @@ public function index()
 
 
     $data = DB::table('sistemas') ->get();
-    $data2 = DB::table('con_dpto_sys') ->get();
+    $data2 = DB::table('tbl_administracion') ->get();
     $mespasado= DB::select("SELECT * FROM  sistemas WHERE MONTH(fecha)=  MONTH(NOW())-1");
     $fechaactual= DB::select("SELECT *  FROM  sistemas WHERE MONTH(fecha)=  MONTH(NOW())");
     return view('sistemas.index',compact('data','data2','mespasado','fechaactual'));
 }
+public function bf()
+    {
+        return view('sistemas.busca');
+    }
+    
+    public function consultaf(Request $request)
+    {
+        $mes = $request->input('month');
+        $mesii = $request->input('month2');
+        $resultado= DB::select("SELECT * FROM sistemas WHERE DATE_FORMAT(fecha, '%Y-%m') = '$mes'");
+        $resultadoii= DB::select("SELECT * FROM sistemas WHERE DATE_FORMAT(fecha, '%Y-%m') = '$mesii'");
 
+         $concentrado  = array();
+
+         $concentrado[] = $resultado;
+         $concentrado[] = $resultadoii;
+
+
+        return response(json_encode($concentrado),200)->header('content-type','text/plain');
+    }
+    
 public function prom(Request $request)
 {
 
-    $mespasado= DB::select("SELECT AVG(eventos) AS PROM1 FROM  sistemas WHERE MONTH(fecha)=  MONTH(NOW())-1");
+    $mespasado= DB::select("SELECT AVG(eventos) AS PROM1 FROM  sistemas WHERE DATE_FORMAT(fecha, '%Y-%m')=  MONTH(NOW())-1");
     $fechaactual= DB::select("SELECT AVG(eventos) as PROM2 FROM  sistemas WHERE MONTH(fecha)=  MONTH(NOW())");
     
    foreach($mespasado as $x)
@@ -56,6 +76,10 @@ public function cap(Request $request)    {
 $des = [];
 $obs = [];
 $eventos = [];
+$fecha = date('Y-m-d');
+
+
+var_dump($fecha);
 
 $des = $request->input('des1');
 $obs =  $request->input('Observaciones');
@@ -69,11 +93,17 @@ for($i = 0; $i<$inicio; $i++)
         'observaciones' => $obs[$i],
         'eventos' => $eventos[$i],
         'user_id' => auth()->user()->id,
-        'fecha'=> date('d-m-y')
+        'fecha'=>  $fecha
     ));
 }
         
 return redirect('/sistemas');
     }//finde la fun
 
-}
+
+
+    
+
+
+} //fin de la clase
+
