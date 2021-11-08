@@ -78,9 +78,9 @@
                                                 
                                             <th scope="row">{{$indi->id}}</th>
                                             <td><input type="text" readonly class ="col-md-12" name="des1[]"  value="{{$indi->Description}}"  ></td>
-                                            <td><input type="number" width="35" name="eventos[]" required > </td>
+                                            <td><input type="number" step="any" width="35" name="eventos[]" required > </td>
                                             <td><textarea type="text" width="35" name="Observaciones[]" required></textarea></td>
-                                            <td><input type="date" name="fecha" value="<?php echo date('Y-m-d'); ?>"  readonly/></td>
+                                            <td><input type="date" disabled name="fecha" value="<?php echo date('Y-m-d'); ?>"  /></td>
                                         </tr>    
                                             @endforeach
 

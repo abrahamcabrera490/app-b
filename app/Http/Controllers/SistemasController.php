@@ -17,7 +17,7 @@ public function index()
 
 
     $data = DB::table('sistemas') ->get();
-    $data2 = DB::table('tbl_administracion') ->get();
+    $data2 = DB::table('tbl_sistemas') ->get();
     $mespasado= DB::select("SELECT * FROM  sistemas WHERE MONTH(fecha)=  MONTH(NOW())-1");
     $fechaactual= DB::select("SELECT *  FROM  sistemas WHERE MONTH(fecha)=  MONTH(NOW())");
     return view('sistemas.index',compact('data','data2','mespasado','fechaactual'));
