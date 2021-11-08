@@ -39,6 +39,7 @@ Route::get('/conta', [App\Http\Controllers\ContaController::class, 'index'])->na
 Route::get('/logistica', [App\Http\Controllers\logisticaController::class, 'index'])->name('logistica');
 Route::get('/mtto', [App\Http\Controllers\mttoController::class, 'index'])->name('mtto');
 Route::get('/produc', [App\Http\Controllers\ProduccionController::class, 'index'])->name('produc');
+Route::get('/pedidos', [App\Http\Controllers\PedidosController::class, 'index'])->name('pedidos');
 Route::get('/rh', [App\Http\Controllers\RhController::class, 'index'])->name('rh');
 
 
@@ -90,6 +91,7 @@ Route::post('/contacap', [App\Http\Controllers\ContaController::class, 'cap'])->
 Route::post('/logisticacap', [App\Http\Controllers\logisticaController::class, 'cap'])->name('logisticacap');
 Route::post('/mttocap', [App\Http\Controllers\mttoController::class, 'cap'])->name('mttocap');
 Route::post('/produccap', [App\Http\Controllers\ProduccionController::class, 'cap'])->name('produccap');
+Route::post('/pedidoscap', [App\Http\Controllers\PedidosController::class, 'cap'])->name('pedidoscap');
 Route::post('/rhcap', [App\Http\Controllers\RhController::class, 'cap'])->name('rhcap');
 
 

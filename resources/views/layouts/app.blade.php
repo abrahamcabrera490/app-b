@@ -79,7 +79,7 @@
                                 <a class="dropdown-item" href="{{route('almacen')}}">Almacen</a>
                                 @endif
                         
-                             @if (auth()->user()->hasRoles(['cobranz', '6']) )
+                             @if (auth()->user()->hasRoles(['cobranza', '6']) )
                                 <a class="dropdown-item" href="{{route('cobranza')}}">cobranza</a>
                                 @endif
                         
@@ -101,6 +101,10 @@
                         
                              @if (auth()->user()->hasRoles(['Produccion', '10']) )
                                 <a class="dropdown-item" href="{{route('produc')}}">Produccion</a>
+                                @endif
+                        
+                             @if (auth()->user()->hasRoles(['Pedidos', '15']) )
+                                <a class="dropdown-item" href="{{route('pedidos')}}">Pedidos</a>
                                 @endif
                         
                           

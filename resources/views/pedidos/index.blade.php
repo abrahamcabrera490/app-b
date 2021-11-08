@@ -38,7 +38,7 @@
                             @foreach ($data as $item)
         
                             <tr>
-                                <td>{{$item->desctription}}</td>
+                                <td>{{$item->description}}</td>
                                 <td>{{$item->eventos}}</td>
                                 <td>{{$item->observaciones}}</td>
                                 <td>{{$item->fecha}}</td>
@@ -59,7 +59,7 @@
                 <div class="">
                     <div class="card">
                         <div class="card-header">Bienvenido</div>
-                            <form action="{{ route('cap') }}" method="POST">
+                            <form action="{{ route('pedidoscap') }}" method="POST">
                                 @csrf
                                 @method('POST')
                                 <table class=" col-xl-12 col-md-12 col-xs-6 table table-responsive table-striped">
@@ -80,7 +80,7 @@
                                             <td><input type="text" readonly class ="col-md-12" name="des1[]"  value="{{$indi->Description}}"  ></td>
                                             <td><input type="number" step="any" width="35" name="eventos[]" required > </td>
                                             <td><textarea type="text" width="35" name="Observaciones[]" required></textarea></td>
-                                            <td><input type="date" name="fecha" value="<?php echo date('Y-m-d'); ?>"  readonly/></td>
+                                            <td><input type="date" name="fecha" value="<?php echo date('Y-m-d'); ?>" disabled/></td>
                                         </tr>    
                                             @endforeach
 
@@ -177,7 +177,7 @@
             var frm = $(this).serialize();
             $.ajax({
                 method:"GET",
-                url:"admonconsultaf",
+                url:"pedidosbf",
                 data:frm
             }).done( function( info){
     //MOSTRAMOS  RESPUESTA del server
@@ -198,7 +198,7 @@
                    m = (x1[1][i].eventos*100/x1[0][i].eventos).toFixed(0);
      
                 }
-    tabla +=  `<tr>  <td>  ${x1[0][i].desctription}  </td> 
+    tabla +=  `<tr>  <td>  ${x1[0][i].description}  </td> 
                 <td> ${ x1[0][i].eventos}  </td>
                 <td> ${ x1[1][i].eventos}  </td>
                 <td> ${ m}%  </td>
