@@ -83,6 +83,11 @@
                                 <a class="dropdown-item" href="{{route('cobranza')}}">cobranza</a>
                                 @endif
                         
+                        
+                             @if (auth()->user()->hasRoles(['calidad', '12']) )
+                                <a class="dropdown-item" href="{{route('calidad')}}">calidad</a>
+                                @endif
+                        
                              @if (auth()->user()->hasRoles(['compras', '3']) )
                                 <a class="dropdown-item" href="{{route('compras')}}">compras</a>
                                 @endif
@@ -111,6 +116,11 @@
                         
                              @if (auth()->user()->hasRoles(['RH', '11']) )
                                 <a class="dropdown-item" href="{{route('rh')}}">Recursos Humanos</a>
+                                @endif
+                        
+                        
+                             @if (auth()->user()->hasRoles(['seguridad', '13']) )
+                                <a class="dropdown-item" href="{{route('seguridad')}}">Seguridad</a>
                                 @endif
                         
                             </div>

@@ -41,6 +41,7 @@ Route::get('/mtto', [App\Http\Controllers\mttoController::class, 'index'])->name
 Route::get('/produc', [App\Http\Controllers\ProduccionController::class, 'index'])->name('produc');
 Route::get('/pedidos', [App\Http\Controllers\PedidosController::class, 'index'])->name('pedidos');
 Route::get('/rh', [App\Http\Controllers\RhController::class, 'index'])->name('rh');
+Route::get('/seguridad', [App\Http\Controllers\SeguridadController::class, 'index'])->name('seguridad');
 
 
 
@@ -71,6 +72,7 @@ Route::get('/mttobf', [App\Http\Controllers\MttoController::class, 'consultaf'])
 Route::get('/pedidosbf', [App\Http\Controllers\PedidosController::class, 'consultaf'])->name('pedidosbf');
 Route::get('/produccionbf', [App\Http\Controllers\ProduccionController::class, 'consultaf'])->name('produccionbf');
 Route::get('/rhbf', [App\Http\Controllers\RhController::class, 'consultaf'])->name('rhbf');
+Route::get('/seguridadbf', [App\Http\Controllers\SeguridadController::class, 'consultaf'])->name('seguridadbf');
 
 
 
@@ -93,6 +95,7 @@ Route::post('/mttocap', [App\Http\Controllers\mttoController::class, 'cap'])->na
 Route::post('/produccap', [App\Http\Controllers\ProduccionController::class, 'cap'])->name('produccap');
 Route::post('/pedidoscap', [App\Http\Controllers\PedidosController::class, 'cap'])->name('pedidoscap');
 Route::post('/rhcap', [App\Http\Controllers\RhController::class, 'cap'])->name('rhcap');
+Route::post('/seguridadcap', [App\Http\Controllers\SeguridadController::class, 'cap'])->name('seguridadcap');
 
 
 
