@@ -40,10 +40,21 @@ $dtime  = $request->input('date');
 $status = 'pendiente';
 
 
+if(empty($file))
 
+{
+
+$file_name = " ";
+
+
+}
+else
+{
     $file_name  = time().$file->getClientOriginalName();
     Storage::disk('images')->put($file_name, File::get($file));
 
+}
+    
 $inset = DB::table('ticket')->insert(array(
     'user_name' => $user,
     'dpto' => $dpto,
@@ -97,11 +108,21 @@ $decription = $request->input('description');
 $tools = $request->input('tools');
 $file = $request->file('upload_file');
 $firm = $request->input('firm');
-$file_name  = time().$file->getClientOriginalName();
-Storage::disk('images')->put($file_name, File::get($file));
+if(empty($file))
+
+{
+
+$file_name = " ";
 
 
+}
+else
+{
+    $file_name  = time().$file->getClientOriginalName();
+    Storage::disk('images')->put($file_name, File::get($file));
 
+}
+    
 
 $update =DB::table('ticket')->where('id',$id)->update(array(
 
