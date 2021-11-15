@@ -23,6 +23,15 @@ class HomeController extends Controller
      */
     public function index()
     {
-        return view('home');
+
+        if(auth()->user()->dpto == 'Gerencia')
+
+        {
+            return  redirect('/gerente');
+        }
+        else{
+            return view('home');
+        }
+        
     }
 }

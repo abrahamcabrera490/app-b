@@ -57,11 +57,11 @@ height: 450px;
 
 
 <div class="contenedor container col-xl-12">
-    <h1 class="gerente center-block">Vista Gerente</h1>
+    <h1 class="gerente center-block">Bien Venido al sistema  {{ Auth::user()->name }} <br>Esperamos que tengas una buena experencia en el</h1>
   <input type="month">
 <div class="centro container">
  <div class="card">
-    <a href="http://localhost/bueno/public/sistemas#pills-contact">
+    <a href="sistemas">
     <div class=" prog center-block">
     <h3>Sistemas</h3>
     <div class="progress ">
@@ -75,7 +75,7 @@ height: 450px;
 
 
 <div class="card">
-    <a href="">
+    <a href="almacen">
     <div class=" prog center-block">
     <h3>Almacen</h3>
     <div class="progress ">
@@ -87,7 +87,7 @@ height: 450px;
 
 
 <div class="card">
-    <a href="">
+    <a href="calidad">
     <div class=" prog center-block">
     <h3>Calidad</h3>
     <div class="progress ">
@@ -101,7 +101,7 @@ height: 450px;
 
 
    <div class="card"> 
-    <a href="">
+    <a href="cobranza">
     <div class=" prog center-block">
     <h3>Credito y cobranza</h3>
     <div class="progress ">
@@ -116,7 +116,7 @@ height: 450px;
 
 
 <div class="card">
-    <a href="">
+    <a href="compras">
     <div class=" prog center-block">
     <h3>Compras</h3>
     <div class="progress ">
@@ -129,7 +129,7 @@ height: 450px;
 
 
 <div class="card">
-    <a href="">
+    <a href="mtto">
     <div class=" prog center-block">
     <h3>Mantenimiento</h3>
     <div class="progress ">
@@ -145,7 +145,7 @@ height: 450px;
 
 
 <div class="card">
-    <a href="">
+    <a href="produc">
     <div class=" prog center-block">
     <h3>Produccion</h3>
     <div class="progress ">
@@ -161,7 +161,7 @@ height: 450px;
 
 
 <div class="card">
-    <a href="">
+    <a href="pedidos">
     <div class=" prog center-block">
     <h3>Pedidos</h3>
     <div class="progress ">
@@ -175,7 +175,7 @@ height: 450px;
 
 
 <div class="card">
-    <a href="">
+    <a href="logistica">
     <div class=" prog center-block">
     <h3>Loguistica</h3>
     <div class="progress ">
@@ -186,7 +186,7 @@ height: 450px;
 </div>
 
 <div class="card">
-    <a href="">
+    <a href="rh">
     <div class=" prog center-block">
     <h3>Recursos Humanos</h3>
     <div class="progress ">
@@ -201,7 +201,7 @@ height: 450px;
 
 
 <div class="card">
-    <a href="">
+    <a href="seguridad">
 <div class=" prog center-block">
     <h3>Seguridad</h3>
     <div class="progress ">
@@ -213,7 +213,7 @@ height: 450px;
 
 
 <div class="card">
-    <a href="">
+    <a href="conta">
     <div class=" prog center-block">
     <h3>Contabilidad</h3>
     <div class="progress ">

@@ -17,10 +17,6 @@ class UsersTicket extends Controller
 {
     
 
-public function __construct()
-{
-    $this->middleware(['auth','roles:admin,user']);
-}
 
 
 public function index(Request $request)
