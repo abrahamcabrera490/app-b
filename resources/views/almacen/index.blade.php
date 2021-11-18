@@ -152,7 +152,7 @@
                                             @foreach ( $data2 as $indi )
                                                 
                                             <th scope="row">{{$indi->id}}</th>
-                                          <td><textarea name="des1[]" readonly value="{{$indi->description}}"  > {{$indi->Description}}  </textarea> </td>
+                                          <td><textarea name="des1[]" readonly value="{{$indi->description}}"  > {{$indi->description}}  </textarea> </td>
                                             <td><input type="number" step="any" width="35" name="eventos[]" value="13.5" required > </td>
                                             <td><textarea type="text" width="35" name="Observaciones[]" value=""  required>Indicador Piloto</textarea></td>
                                             <td><input type="date" disabled name="fecha" value="<?php echo date('Y-m-d'); ?>"  /></td>
