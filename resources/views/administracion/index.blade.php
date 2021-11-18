@@ -43,22 +43,24 @@
 
 
 
- <form id="frmdate" name="frmdate"  action="" method="GET">
-     @csrf
-         @method('GET')
- <label class="row" for="month">Ingresa Primer Mes</label>
- <input class="row" type="month"  name="month" id="month">
- <br>
- <label class="row" for="month2">Ingresa segundo Mes</label> 
- <input type="month"  name="month2" id="month"><br><br>
- <input class="btn btn-info" type="submit"  value="CONSULTA"> <br>
- <br>
- 
+<form id="frmdate" name="frmdate"  action="" method="GET">
+    @csrf
+        @method('GET')
+    <div class="form-group">
+      <label for="exampleInputEmail1">Seleccione el primer mes</label>
+      <input  class="form-control"  type="month"  name="month" id="month">
+    </div>
+    <div class="form-group">
+      <label for="exampleInputPassword1">Seleccione el segundo mes </label>
+      <input class="form-control" type="month"  name="month2" id="month">
+    </div>
 
+    <input class="btn btn-info" type="submit"  value="CONSULTA">
+  </form>
 
  <button hidden class="btn btn-success float-rigth" onclick="exportTableToExcel('data_table')">Enviar a Excel</button> &nbsp;
  <button hidden class="btn btn-danger float-rigth" onclick="printPDF()">enviar a Pdf</button>
- </form>
+
 
    
  <table  class="table table-responsive table-striped">
