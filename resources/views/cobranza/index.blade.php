@@ -200,7 +200,7 @@
             var frm = $(this).serialize();
             $.ajax({
                 method:"GET",
-                url:"consultaf",
+                url:"cobranzabf",
                 data:frm
             }).done( function( info){
     //MOSTRAMOS  RESPUESTA del server

@@ -64,7 +64,7 @@ Route::get('/gerente', [App\Http\Controllers\GerenciaController::class, 'index']
 Route::GET('/admonconsultaf', [App\Http\Controllers\AdmonController::class, 'consultaf'])->name('admonconsultaf');
 Route::get('/almacenbf', [App\Http\Controllers\AlmacenController::class, 'consultaf'])->name('almacenbf');
 Route::get('/calidadbf', [App\Http\Controllers\CalidadController::class, 'consultaf'])->name('calidadbf');
-Route::get('/cobranzabf', [App\Http\Controllers\CobranzaController::class, 'consultaf'])->name('bf');
+Route::get('/cobranzabf', [App\Http\Controllers\CobranzaController::class, 'consultaf'])->name('cobranzabf');
 Route::get('/comprasbf', [App\Http\Controllers\ComprasController::class, 'consultaf'])->name('comprasbf');
 Route::get('/contabf', [App\Http\Controllers\ContaController::class, 'consultaf'])->name('contabf');
 Route::get('/logisticabf', [App\Http\Controllers\LogisticaController::class, 'consultaf'])->name('logisticabf');

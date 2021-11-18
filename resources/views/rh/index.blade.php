@@ -131,7 +131,7 @@
                 <div class="">
                     <div class="card">
                         <div class="card-header">Bienvenido</div>
-                            <form action="{{ route('cap') }}" method="POST">
+                            <form action="{{ route('rhcap') }}" method="POST">
                                 @csrf
                                 @method('POST')
                                 <table class=" col-xl-12 col-md-12 col-xs-6 table table-responsive table-striped">
@@ -200,7 +200,7 @@
             var frm = $(this).serialize();
             $.ajax({
                 method:"GET",
-                url:"consultaf",
+                url:"rhbf",
                 data:frm
             }).done( function( info){
     //MOSTRAMOS  RESPUESTA del server
