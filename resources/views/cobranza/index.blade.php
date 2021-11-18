@@ -110,7 +110,7 @@
                             @foreach ($data as $item)
         
                             <tr>
-                                <td>{{$item->desctription}}</td>
+                                <td>{{$item->description}}</td>
                                 <td>{{$item->eventos}}</td>
                                 <td>{{$item->observaciones}}</td>
                                 <td>{{$item->fecha}}</td>
@@ -223,7 +223,7 @@
                    m = (x1[1][i].eventos*100/x1[0][i].eventos).toFixed(0);
      
                 }
-    tabla +=  `<tr>  <td>  ${x1[0][i].desctription}  </td> 
+    tabla +=  `<tr>  <td>  ${x1[0][i].description}  </td> 
                 <td> ${ x1[0][i].eventos}  </td>
                 <td> ${ x1[1][i].eventos}  </td>
                 <td> ${ m}%  </td>

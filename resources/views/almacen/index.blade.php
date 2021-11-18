@@ -110,7 +110,7 @@
                             @foreach ($data as $item)
         
                             <tr>
-                                <td>{{$item->desctription}}</td>
+                                <td>{{$item->description}}</td>
                                 <td>{{$item->eventos}}</td>
                                 <td>{{$item->observaciones}}</td>
                                 <td>{{$item->fecha}}</td>
@@ -149,7 +149,7 @@
                                             @foreach ( $data2 as $indi )
                                                 
                                             <th scope="row">{{$indi->id}}</th>
-                                          <td><textarea name="des1[]" readonly value="{{$indi->Description}}"  > {{$indi->Description}}  </textarea> </td>
+                                          <td><textarea name="des1[]" readonly value="{{$indi->description}}"  > {{$indi->Description}}  </textarea> </td>
                                             <td><input type="number" step="any" width="35" name="eventos[]" value="13.5" required > </td>
                                             <td><textarea type="text" width="35" name="Observaciones[]" value=""  required>Indicador Piloto</textarea></td>
                                             <td><input type="date" disabled name="fecha" value="<?php echo date('Y-m-d'); ?>"  /></td>
@@ -223,7 +223,7 @@
                    m = (x1[1][i].eventos*100/x1[0][i].eventos).toFixed(0);
      
                 }
-    tabla +=  `<tr>  <td>  ${x1[0][i].desctription}  </td> 
+    tabla +=  `<tr>  <td>  ${x1[0][i].description}  </td> 
                 <td> ${ x1[0][i].eventos}  </td>
                 <td> ${ x1[1][i].eventos}  </td>
                 <td> ${ m}%  </td>
