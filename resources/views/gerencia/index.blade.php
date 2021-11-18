@@ -57,7 +57,7 @@ height: 450px;
 
 
 <div class="contenedor container col-xl-12">
-    <h1 class="gerente center-block">Bien Venido al sistema  {{ Auth::user()->name }} <br>Esperamos que tengas una buena experencia en el</h1>
+    <h1 class="gerente center-block">Bienvenido al sistema  {{ Auth::user()->name }} <br>Esperamos que tengas un buen día</h1>
   <input type="month">
 <div class="centro container">
  <div class="card">

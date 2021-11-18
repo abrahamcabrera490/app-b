@@ -33,7 +33,7 @@
 =================================================================================================
 =================================================================================================
 -->
-
+<h1 class="center-block"><strong>Dpto. Sistemas</strong></h1>
 <hr>
 
 <h1 class="center-block"><strong>Comparar Por meses</strong></h1>
@@ -138,7 +138,7 @@
                             <form action="{{ route('cap') }}" method="POST">
                                 @csrf
                                 @method('POST')
-                                <table class=" col-xl-12 col-md-12 col-xs-6 table table-responsive table-striped">
+                                <table  class="table table-responsive table-striped">
                                     <thead>
                                         <tr>
                                             <th scope="col">ID</th>

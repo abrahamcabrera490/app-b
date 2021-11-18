@@ -34,6 +34,7 @@
 =================================================================================================
 -->
 
+<h1 class="center-block"><strong>Dpto. Administracion</strong></h1>
 <hr>
 
 <h1 class="center-block"><strong>Comparar Por meses</strong></h1>
