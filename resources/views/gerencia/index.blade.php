@@ -65,7 +65,7 @@ height: 450px;
     <div class=" prog center-block">
     <h3>Sistemas</h3>
     <div class="progress ">
-        <div class="progress-bar" role="progressbar" style="width: 80%;" aria-valuenow="80" aria-valuemin="0" aria-valuemax="100">80%</div>
+        <div class="progress-bar" role="progressbar" style="width: 100%;" aria-valuenow="100" aria-valuemin="0" aria-valuemax="100">100%</div>
       </div>
     </div>
 </div>
