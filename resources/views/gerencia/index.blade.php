@@ -57,7 +57,7 @@ height: 450px;
 
 
 <div class="contenedor container col-xl-12">
-    <h1 class="gerente center-block">Bienvenido al sistema  {{ Auth::user()->name }} <br>Esperamos que tengas un buen día</h1>
+    <h1 class="gerente center-block">Bienvenido al sistema  {{ Auth::user()->name }} <br>Seleccione el mes a analizar</h1>
   <input type="month">
 <div class="centro container">
  <div class="card">
@@ -177,7 +177,7 @@ height: 450px;
 <div class="card">
     <a href="logistica">
     <div class=" prog center-block">
-    <h3>Loguistica</h3>
+    <h3>Logistica</h3>
     <div class="progress ">
         <div class="progress-bar" role="progressbar" style="width: 100%;" aria-valuenow="100" aria-valuemin="0" aria-valuemax="100">100%</div>
       </div>
